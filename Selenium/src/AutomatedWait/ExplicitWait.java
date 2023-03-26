@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ExplicitWait {
 
 	public static void main(String[] args) {
-		
+
 		System.setProperty("webdriver.edge.driver", "C:\\Tools\\msedgedriver.exe");
 		WebDriver driver = new EdgeDriver();
 		driver.get("https://theautomationzone.blogspot.com/");
@@ -29,7 +29,6 @@ public class ExplicitWait {
 				.getText();
 
 		System.out.println(message);
-
 
 	}
 

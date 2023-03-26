@@ -11,11 +11,10 @@ public class OpenAllBrowsers {
 	public static void main(String[] args) {
 		
 		// Open Chrome
-		System.setProperty("webdriver.chrome.driver", "C:\\Tools\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver(); 
-		  driver.get("https://www.google.com");
-		  ChromeOptions co = new ChromeOptions();
-			co.addArguments("--remote-allow-origins=*");
+	    ChromeOptions options = new ChromeOptions();
+	    options.addArguments("--remote-allow-origins=*");
+	    WebDriver driver = new ChromeDriver(options);
+	    driver.get("https://www.google.com");
 
 //		  // Open Firefox
 //		  WebDriver driver = new FirefoxDriver(); 
