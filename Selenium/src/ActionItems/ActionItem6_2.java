@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class ActionItem6_2 {
 
@@ -85,6 +86,16 @@ public class ActionItem6_2 {
 			radio3.click();
 		}
 		System.out.println("Radio Button Selected " + radio3.isSelected());
+		
+WebElement dropdown = driver.findElement(By.xpath("//select[@name='dropdown']"));
+		
+		dropdown.isDisplayed();
+		dropdown.isEnabled();
+		//Create a reference variable
+		Select dropdownSelect = new Select(dropdown);
+		
+		//Select by visible text
+		dropdownSelect.selectByVisibleText("Drop Down Item 5");
 	}
 
 }
