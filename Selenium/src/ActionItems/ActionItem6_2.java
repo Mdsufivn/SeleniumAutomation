@@ -72,6 +72,19 @@ public class ActionItem6_2 {
 		}
 		System.out.println("Check Box2 Selected: " + check3.isSelected());
 		
+		WebElement radio3 = driver.findElement(By.xpath("//input[@value='rd3']"));
+
+		// displayed
+		radio3.isDisplayed();
+		// enabled
+		radio3.isEnabled();
+		// selected status
+		radio3.isSelected();
+		//All 3 condition must be met to then click on the radio button
+		if (radio3.isDisplayed() && radio3.isEnabled() && !radio3.isSelected()) {
+			radio3.click();
+		}
+		System.out.println("Radio Button Selected " + radio3.isSelected());
 	}
 
 }

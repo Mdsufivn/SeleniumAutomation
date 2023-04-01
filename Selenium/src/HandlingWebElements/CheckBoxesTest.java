@@ -1,4 +1,4 @@
-package QA_Test;
+package HandlingWebElements;
 
 import java.time.Duration;
 
