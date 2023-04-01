@@ -49,14 +49,14 @@ public class Methods {
 		//navigate().refresh(): This method refreshes the current web page.
 		driver.navigate().refresh();
 
-		navigate().to(String url): This method loads a new web page in the current browser window.
-		Example: driver.navigate().to("https://www.google.com");
+		//navigate().to(String url): This method loads a new web page in the current browser window.
+		driver.navigate().to("https://www.google.com");
 
-		navigate().back(): This method navigates back to the previous web page.
-		Example: driver.navigate().back();
+		//navigate().back(): This method navigates back to the previous web page.
+		driver.navigate().back();
 
-		navigate().forward(): This method navigates forward to the next web page.
-		Example: driver.navigate().forward();
+		//navigate().forward(): This method navigates forward to the next web page.
+		driver.navigate().forward();
 
 		
 
