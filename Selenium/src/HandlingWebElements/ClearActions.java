@@ -1,6 +1,6 @@
-package QA_Test;
+package HandlingWebElements;
 
-public class HandlingWebElements {
+public class ClearActions {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

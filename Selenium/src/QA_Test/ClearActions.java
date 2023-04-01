@@ -1,4 +1,4 @@
-package WebDriverManager;
+package QA_Test;
 
 public class ClearActions {
 

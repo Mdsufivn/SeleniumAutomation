@@ -2,52 +2,50 @@ package ActionItems;
 
 import java.time.Duration;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.edge.EdgeDriver;
 
 public class ActionItem6_1 {
 
 	public static void main(String[] args) {
+		/*
+		 * Navigate to https://testpages.herokuapp.com/styled/alerts/alert-test.html
+		 * site. Click on every green buttons, capture the text of alerts, handle all
+		 * the alerts and print all the text that is shown after every button once you
+		 * handled each and every alerts.
+		 */
 
-		ChromeOptions co = new ChromeOptions();
-		co.addArguments("--remote-allow-origins=*");
+		System.setProperty("webdriver.edge.driver", "C:\\Tools\\msedgedriver.exe");
+		WebDriver driver = new EdgeDriver();
+		driver.get("https://testpages.herokuapp.com/styled/alerts/alert-test.html");
 
-		WebDriver driver = new ChromeDriver(co);
-		driver.get("https://theautomationzone.blogspot.com/2022/01/calculator.html");
-		
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-		WebElement input1 = driver.findElement(By.xpath("//table/tbody/tr[2]/td[3]/input"));
+		// 1st Green box located and clicked
+		driver.findElement(By.xpath("//input[@id='alertexamples']")).click();
+		Alert alert1 = driver.switchTo().alert();
+		System.out.println(alert1.getText());
+		alert1.accept();
 
-		input1.click();
+		// 2nd Green box located and clicked
+		driver.findElement(By.xpath("//input[@id='confirmexample']")).click();
+		Alert alert2 = driver.switchTo().alert();
+		System.out.println(alert2.getText());
+		alert2.accept();
+		String second = driver.findElement(By.xpath("//p[@id='confirmexplanation']")).getText();
+		System.out.println(second);
 
-		WebElement input2 = driver.findElement(By.xpath("//table/tbody/tr[5]/td[4]/input"));
-
-		input2.click();
-
-		WebElement input3 = driver.findElement(By.xpath("//table/tbody/tr[4]/td[2]/input"));
-
-		input3.click();
-
-		WebElement input4 = driver.findElement(By.xpath("//table/tbody/tr[5]/td[3]/input"));
-
-		input4.click();
-		
-		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1000));
-
-		String message = wait
-		        .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='result']")))
-		        .getText();
-		
-
-		System.out.println("Result: " + message);
-
-		//driver.quit();
+		// 3nd Green box located and clicked
+		driver.findElement(By.xpath("//input[@id='promptexample']")).click();
+		Alert alert3 = driver.switchTo().alert();
+		System.out.println(alert3.getText());
+		alert3.accept();
+		String third = driver.findElement(By.xpath("//p[@id='promptexplanation']")).getText();
+		System.out.println(third);
+		driver.close();
 	}
 }
