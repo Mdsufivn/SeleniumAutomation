@@ -21,27 +21,28 @@ public class Scrolling {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 		WebElement target1 = driver.findElement(By.xpath("//span[text()='Save on, saver']"));
-		
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		
-		//Scroll down
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		// Scroll down
 		js.executeScript("window.scrollBy(0, 2000)");
 		Thread.sleep(2000);
 
-		//Scroll Up
+		// Scroll Up
 		js.executeScript("window.scrollBy(0, -1000)");
 		Thread.sleep(2000);
-		
-		//Scroll to a targeted element
+
+		// Scroll to a targeted element
 		js.executeScript("arguments[0].scrollIntoView()", target1);
 		Thread.sleep(2000);
-		
-		
-		driver.close();
-		
+
+		// Scroll to the bottom
+		js.executeScript("window.scrollBy(0, document.body.scrollHeight)");
+		Thread.sleep(2000);
+
+		//driver.close();
+
 		System.out.println("Success in scrolling");
-		
-		
 
 	}
 
