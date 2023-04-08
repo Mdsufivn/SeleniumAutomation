@@ -1,53 +1,53 @@
 package HandlingWebElements;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class ClearActions {
 
-	public static void main(String[] args) {
-		
+	public static void main(String[] args) throws Exception {
 
-		        // Set system property for chromedriver executable
-		        System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
+		WebDriverManager.edgedriver().setup();
+		WebDriver driver = new EdgeDriver();
+		driver.get("https://www.google.com/");
 
-		        // Create an instance of the ChromeDriver
-		        WebDriver driver = new ChromeDriver();
+		// adding page load timeout
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+		// maximizing the window
+		driver.manage().window().maximize();
+		// adding implicit wait
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-		        // Navigate to the website
-		        driver.get("https://www.example.com");
+		// capturing a web element and saving it under a variable
+		WebElement searchBox = driver.findElement(By.name("q"));
 
-		        // Find the search input element
-		        WebElement searchInput = driver.findElement(By.name("q"));
+		// use sendkeys method on a web element
+		searchBox.sendKeys("search for meat");
+		// wait only for demo purpose
+		Thread.sleep(2000);
 
-		        // Enter a value into the search input
-		        searchInput.sendKeys("Selenium");
+		// clear the search field
+		searchBox.clear();
 
-		        // Wait for 2 seconds
-		        try {
-		            Thread.sleep(2000);
-		        } catch (InterruptedException e) {
-		            e.printStackTrace();
-		        }
+		// caputring gmail link and saving it under a variable
+		WebElement gmailLink = driver.findElement(By.xpath("//a[@aria-label='Gmail (opens a new tab)']"));
+		// capture the text of a web element
+		String text = gmailLink.getText();
+		// print the text
+		System.out.println("The text is: " + text);
 
-		        // Clear the search input
-		        searchInput.clear();
+		// get an attribute of Gmail link
+		String completeLink = gmailLink.getAttribute("href");
+		// print the link
+		System.out.println("The entire link is: " + completeLink);
 
-		        // Wait for 2 seconds
-		        try {
-		            Thread.sleep(2000);
-		        } catch (InterruptedException e) {
-		            e.printStackTrace();
-		        }
-
-		        // Close the browser
-		        driver.quit();
-		    }
-		}
-
-
+		// driver.
 	}
-
 }
